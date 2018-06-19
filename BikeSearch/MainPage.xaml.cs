@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Microsoft.AppCenter.Analytics;
 using Xamarin.Forms;
 
 namespace BikeSearch
@@ -25,6 +26,7 @@ namespace BikeSearch
             {
                 var item = (BikeItem)e.SelectedItem;
                 this.bikesList.SelectedItem = null;
+                Analytics.TrackEvent("ViewPosting");
                 Device.OpenUri(new System.Uri(item.Link));
             }
         }
