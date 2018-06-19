@@ -2,6 +2,21 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:BikeSearch" x:Class="BikeSearch.MainPage">
   <StackLayout>
     <!-- Place new controls here -->
-    <Label Text="Welcome to Bike Search!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+    <Label Text="Welcome to Bike Search!" 
+      HorizontalOptions="Center"
+       VerticalOptions="Start" Margin="20" />
+       
+       
+     <ListView x:Name="bikesList" RowHeight="200">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ImageCell Height="200" 
+          ImageSource="{Binding Image}" 
+          Text="{Binding Text}" 
+          Detail="{Binding Description}" />
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+   
   </StackLayout>
 </ContentPage>

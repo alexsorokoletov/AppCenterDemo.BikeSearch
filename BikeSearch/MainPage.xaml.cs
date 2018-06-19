@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace BikeSearch
@@ -12,6 +8,15 @@ namespace BikeSearch
         public MainPage()
         {
             InitializeComponent();
+            LoadItemsAsync();
+        }
+
+        private async Task LoadItemsAsync()
+        {
+            this.bikesList.IsRefreshing = true;
+            this.bikesList.ItemsSource = await CraigsHelper.SearchAsync("bike");
+            this.bikesList.IsRefreshing = false;
+            this.bikesList.EndRefresh();
         }
     }
 }
