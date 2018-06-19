@@ -7,7 +7,10 @@
        VerticalOptions="Start" Margin="20" />
        
        
-     <ListView x:Name="bikesList" RowHeight="200">
+     <ListView 
+ItemSelected="Handle_ItemSelected"
+
+x:Name="bikesList" RowHeight="200">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ImageCell Height="200" 

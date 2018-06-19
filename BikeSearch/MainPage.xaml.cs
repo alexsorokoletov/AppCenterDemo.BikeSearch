@@ -18,5 +18,15 @@ namespace BikeSearch
             this.bikesList.IsRefreshing = false;
             this.bikesList.EndRefresh();
         }
+
+        void Handle_ItemSelected(object sender, Xamarin.Forms.SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                var item = (BikeItem)e.SelectedItem;
+                this.bikesList.SelectedItem = null;
+                Device.OpenUri(new System.Uri(item.Link));
+            }
+        }
     }
 }
